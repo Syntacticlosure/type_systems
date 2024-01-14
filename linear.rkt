@@ -106,7 +106,7 @@
             ([(v ty) (in-hash env2)])
     (match (llc.ty.get-qualifier ty)
       [(llc.un) (hash-remove env v)] ;; ensure unrestricted variables are removed out of scope
-      [(llc.lin) (begin (when (hash-has-key? env v) ;; ensure linear variables are used exactly one
+      [(llc.lin) (begin (when (hash-has-key? env v) ;; ensure linear variables are used exactly once
                           (error (format "~a: linear variable ~a remains unused." 'llc.ty.env.diff v)))
                         env)])))
 
