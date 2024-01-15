@@ -242,7 +242,8 @@
                         (define T_-kind (llf.kinding T_ (llf.ty.env.set tenv x T) kenv))
                         (unless (llf.kind.*? T_-kind)
                           (error (format "kind error: return type of pi type should have * kind, but got: ~a, in type: ~a"
-                                         (llf.kind.unparse T_-kind) (llf.ty.unparse ty))))]))
+                                         (llf.kind.unparse T_-kind) (llf.ty.unparse ty))))
+                        T_-kind]))
 
 (define/contract (llf.tyck sexp)
   (-> any/c any/c)
